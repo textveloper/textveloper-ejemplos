@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+
+$(function(){
+
+	$('#enviar').click(function(){
+
+		var cuenta_token    = $('#cuenta_token').val();
+		var subcuenta_token = $('#subcuenta_token').val();
+
+		var telefono = $('#telefono').val();
+		var mensaje  = $('#mensaje').val();
+
+		$.post('http://api.textveloper.com/sms/enviar/', 
+      { 
+        cuenta_token:cuenta_token,
+        subcuenta_token:subcuenta_token,
+        telefono:telefono,
+        mensaje:mensaje
+      }, 
+
+      function(data){
+
+        if(data.respuesta == 'ok'){
+
+        	alert(data.detalle); 
+
+          
+        }
+
+        if(data.respuesta == 'error')
+        { 
+        	alert(data.detalle); 
+           
+        } 
+
+      
+
+ }, 'json'); 
+
+
+	});
+
+});
+
+</script>
+</head>
+
+<body>
+<h1>SMS con jQuery</h1>
+ID Cuenta <br>
+<input name="cuenta_token" id="cuenta_token" type="text" maxlength="32">
+<br>
+ID Subcuenta <br>
+<input name="subcuenta_token" id="subcuenta_token" type="text" maxlength="32">
+<br>
+Telefono <br>
+<input name="telefono" id="telefono" type="text" maxlength="11">
+<br>
+Mensaje<br>
+<textarea name="mensaje" id="mensaje" rows="6"></textarea>
+<br>
+<br>
+<input type="button" name="enviar" id="enviar" value="Enviar">
+</body>
+</html>
