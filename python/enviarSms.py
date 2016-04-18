@@ -15,7 +15,7 @@ def EnviarSMS(aplicacion_token, cuenta_token, telefono, mensaje):
         data = urllib.urlencode({'telefono': str(telefono),
                                  'mensaje': str(mensaje),
                                  'aplicacion_token': str(aplicacion_token),
-                                 'cuenta_token': cuenta_token})
+                                 'cuenta_token': str(cuenta_token)})
 
         request_url = urllib2.Request(url, data)
         handler = urllib2.urlopen(request_url)
