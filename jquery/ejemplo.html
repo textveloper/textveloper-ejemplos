@@ -10,7 +10,7 @@ $(function(){
 	$('#enviar').click(function(){
 
 		var cuenta_token    = $('#cuenta_token').val();
-		var subcuenta_token = $('#subcuenta_token').val();
+		var subcuenta_token = $('#aplicacion_token').val();
 
 		var telefono = $('#telefono').val();
 		var mensaje  = $('#mensaje').val();
@@ -52,10 +52,10 @@ $(function(){
 
 <body>
 <h1>SMS con jQuery</h1>
-ID Cuenta <br>
+Cuenta Token <br>
 <input name="cuenta_token" id="cuenta_token" type="text" maxlength="32">
 <br>
-ID Subcuenta <br>
+Aplicacion Token <br>
 <input name="subcuenta_token" id="subcuenta_token" type="text" maxlength="32">
 <br>
 Telefono <br>
