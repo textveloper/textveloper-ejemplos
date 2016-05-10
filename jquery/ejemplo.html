@@ -10,7 +10,7 @@ $(function(){
 	$('#enviar').click(function(){
 
 		var cuenta_token    = $('#cuenta_token').val();
-		var subcuenta_token = $('#aplicacion_token').val();
+		var aplicacion_token = $('#aplicacion_token').val();
 
 		var telefono = $('#telefono').val();
 		var mensaje  = $('#mensaje').val();
@@ -18,7 +18,7 @@ $(function(){
 		$.post('http://api.textveloper.com/sms/enviar/', 
       { 
         cuenta_token:cuenta_token,
-        subcuenta_token:subcuenta_token,
+        aplicacion_token:aplicacion_token,
         telefono:telefono,
         mensaje:mensaje
       }, 
@@ -47,16 +47,18 @@ $(function(){
 
 });
 
+
 </script>
 </head>
 
 <body>
 <h1>SMS con jQuery</h1>
 Cuenta Token <br>
-<input name="cuenta_token" id="cuenta_token" type="text" maxlength="32">
+<form method="POST">
+<input name="cuenta_token" id="cuenta_token" type="text">
 <br>
 Aplicacion Token <br>
-<input name="subcuenta_token" id="subcuenta_token" type="text" maxlength="32">
+<input name="aplicacion_token" id="aplicacion_token" type="text" >
 <br>
 Telefono <br>
 <input name="telefono" id="telefono" type="text" maxlength="11">
@@ -66,5 +68,7 @@ Mensaje<br>
 <br>
 <br>
 <input type="button" name="enviar" id="enviar" value="Enviar">
+
+</form>
 </body>
 </html>
