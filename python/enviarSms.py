@@ -6,27 +6,43 @@ import urllib2
 # Enviar SMS
 
 
-def EnviarSMS(aplicacion_token, cuenta_token, telefono, mensaje):
+class Textveloper:
 
-    try:
-        url = "http://api.poralquilar.com/sms/enviar/"
+    def __init__(self, cuenta_token, aplicacion_token):
+        self.cuenta_token = cuenta_token
+        self.aplicacion_token = aplicacion_token
 
-        # Web Hook Data Parameters
-        data = urllib.urlencode({'telefono': str(telefono),
-                                 'mensaje': str(mensaje),
-                                 'aplicacion_token': str(aplicacion_token),
-                                 'cuenta_token': str(cuenta_token)})
+    def enviar_sms(self,telefono, mensaje):
 
-        request_url = urllib2.Request(url, data)
-        handler = urllib2.urlopen(request_url)
-        response = json.loads(handler.read())
+        try:
+            url = "http://api.textveloper.com/sms/enviar/"
 
-        if response['respuesta'] == 'ok':
-            print "Mensaje Enviado al telefono: " + telefono
+            # Web Hook Data Parameters
+            data = urllib.urlencode({'telefono': str(telefono),
+                                     'mensaje': str(mensaje),
+                                     'aplicacion_token': str(self.aplicacion_token),
+                                     'cuenta_token': str(self.cuenta_token)})
 
-        else:
-            print "Mensaje No enviado, Error: " + response['detalle']
+            request_url = urllib2.Request(url, data)
+            handler = urllib2.urlopen(request_url)
+            response = json.loads(handler.read())
 
-    except urllib2.HTTPError, e:
+            if response['respuesta'] == 'ok':
+                print "Mensaje Enviado al telefono: " + telefono
 
-        print e
+            else:
+                print "Mensaje No enviado, Error: " + response['detalle']
+
+        except urllib2.HTTPError, e:
+
+            print e
+            
+            
+# Uso de la Clase
+cuenta_token = "0a2f07d4eb3ada4660bb8ff940720140"
+aplicacion_token = "73537f5a5173fd17fab89086584bbdeff97b1d0b"
+telefono_destino = "0412345678"
+# Iniciar Clase
+textveloper_api = Textveloper(cuenta_token, aplicacion_token)
+# Enviar SMS
+textveloper_api.enviar_sms(telefono_destino", "hola de nuevo")
