@@ -39,10 +39,10 @@ class Textveloper:
             
             
 # Uso de la Clase
-cuenta_token = "0a2f07d4eb3ada4660bb8ff940720140"
-aplicacion_token = "73537f5a5173fd17fab89086584bbdeff97b1d0b"
+cuenta_token = "__TU_CUENTA_TOKEN__"
+aplicacion_token = "__TU_APLICACION_TOKEN__"
 telefono_destino = "0412345678"
 # Iniciar Clase
 textveloper_api = Textveloper(cuenta_token, aplicacion_token)
 # Enviar SMS
-textveloper_api.enviar_sms(telefono_destino", "hola de nuevo")
+textveloper_api.enviar_sms(telefono_destino, "hola de nuevo")
