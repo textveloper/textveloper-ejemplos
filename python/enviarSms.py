@@ -15,7 +15,7 @@ class Textveloper:
     def enviar_sms(self,telefono, mensaje):
 
         try:
-            url = "http://api.textveloper.com/sms/enviar/"
+            url = "https://api.textveloper.com/sms/enviar/"
 
             # Web Hook Data Parameters
             data = urllib.urlencode({'telefono': str(telefono),
