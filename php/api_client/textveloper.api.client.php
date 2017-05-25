@@ -8,7 +8,7 @@ class api {
     var $post_data = '';
     var $result    = '';
     var $return    = '';
-	var $domain    = 'http://api.textveloper.com/';
+	var $domain    = 'https://api.textveloper.com/';
 	
     /* @parameter1 = cuenta_token
      * @parameter2 = aplicacion_token
