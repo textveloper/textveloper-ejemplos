@@ -18,10 +18,15 @@ class api {
 
     function EnviarSms($parameters, $show_results = false) 
     {
-        $this->url       =  $this->domain.'/sms/enviar/';
-        $this->display   =  $show_results;
-        $this->post_data =  $parameters;
-        $this->makeCurl();
+	if  (in_array  ('curl', get_loaded_extensions())) {
+		$this->url       =  $this->domain.'/sms/enviar/';
+        	$this->display   =  $show_results;
+        	$this->post_data =  $parameters;
+        	$this->makeCurl();
+	}
+	else {
+		echo "Error: Libreria Curl es Requerida";
+	}
     }
 
     private function makeCurl() 
