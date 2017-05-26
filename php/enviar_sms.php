@@ -16,7 +16,7 @@ $parameters['mensaje'] 			= 'MENSAJE';
 // true:  Si deseas mostrar la respuesta en formato JSON que retorna la solicitud
 // false: Si no deseas mostrar  la respuesta en formato JSON que retorna la solicitud
 
-$sms->enviar($parameters, true);
+$sms->EnviarSms($parameters, true);
 
 
 ?>
